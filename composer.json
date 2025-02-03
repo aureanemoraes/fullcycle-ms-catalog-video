@@ -1,0 +1,18 @@
+{
+    "name": "aureanemoraes/fc-ms-catalog-video",
+    "authors": [
+        {
+            "name": "Aureane Moraes",
+            "email": "aureane.moraes@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/Core/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "mockery/mockery": "^1.6"
+    }
+}

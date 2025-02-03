@@ -1,0 +1,30 @@
+services:
+  ms-cv-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ms-cv-api
+    image: nane/php/ms-cv-api
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - fullcycle-net
+
+  ms-cv-nginx:
+    image: nginx:latest
+    container_name: ms-cv-nginx
+    ports:
+      - 8888:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - fullcycle-net
+
+networks:
+  fullcycle-net:
+    driver: bridge
+
+  
+
