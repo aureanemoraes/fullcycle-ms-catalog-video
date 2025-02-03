@@ -7,7 +7,8 @@ use PHPUnit\Framework\TestCase;
 
 class CategoryUnitTest extends TestCase
 {
-    public function testAttributes() {
+    public function testAttributes(): void
+    {
         $data = [
             'id' => "",
             'name' => "Category Test",
@@ -26,5 +27,29 @@ class CategoryUnitTest extends TestCase
         $this->assertEquals($data['name'], $category->name);
         $this->assertEquals($data['description'], $category->description);
         $this->assertEquals($data['is_active'], $category->isActive);
+    }
+
+    public function testActivate(): void
+    {
+        $category = new Category(
+            isActive: false
+        );
+
+        $this->assertFalse($category->isActive);
+
+        $category->activate();
+
+        $this->assertTrue($category->isActive);
+    }
+
+    public function testDisable(): void
+    {
+        $category = new Category();
+
+        $this->assertTrue($category->isActive);
+
+        $category->disable();
+
+        $this->assertFalse($category->isActive);
     }
 }
